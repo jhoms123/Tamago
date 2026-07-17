@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#17181d">
+  <meta name="description" content="Faithful installable phone port of Pico Tamachibi.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Pico Tamachibi — Faithful Phone Port</title>
+</head>
+<body>
+<main id="app" class="page-shell">
+  <header class="app-head">
+    <div>
+      <p class="eyebrow">PICO TAMACHIBI</p>
+      <h1>Faithful Phone Edition</h1>
+    </div>
+    <div class="head-actions">
+      <button id="notifyBtn" type="button" aria-label="Enable notifications">ALERTS</button>
+      <button id="installBtn" type="button" class="hidden" aria-label="Install app">INSTALL</button>
+    </div>
+  </header>
+
+  <section class="device-shell" aria-label="Tamachibi virtual device">
+    <div class="screen-label">STATUS DISPLAY</div>
+    <div class="oled status-oled"><canvas id="statusCanvas" width="128" height="32"></canvas></div>
+
+    <div class="screen-label">MAIN DISPLAY</div>
+    <div class="oled main-oled"><canvas id="mainCanvas" width="128" height="64"></canvas></div>
+
+    <div class="world-control">
+      <label for="worldSlider">VIEW DIAL</label>
+      <input id="worldSlider" type="range" min="0" max="2" step="1" value="0">
+      <div class="dial-labels"><span>TAMA</span><span>HOME</span><span>CITY</span></div>
+    </div>
+
+    <div class="hardware-buttons" aria-label="Three-button controls">
+      <button id="btnLeft" type="button"><small>D0</small><strong>LEFT</strong></button>
+      <button id="btnSelect" type="button" class="select"><small>D1</small><strong>SELECT</strong></button>
+      <button id="btnRight" type="button"><small>D2</small><strong>RIGHT</strong></button>
+    </div>
+    <p class="hold-note">Hold D2 to go back. During Music Disc, the view dial becomes volume.</p>
+  </section>
+
+  <section class="phone-tools">
+    <button id="menuShortcut" type="button">OPEN MENU</button>
+    <button id="talkShortcut" type="button">TALK</button>
+    <button id="musicShortcut" type="button">MUSIC DISC</button>
+    <button id="saveShortcut" type="button">SAVE</button>
+  </section>
+
+  <section id="offlineSummary" class="summary hidden" aria-live="polite"></section>
+</main>
+
+<div id="sheet" class="sheet hidden" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+  <div class="sheet-card">
+    <header><div><p class="eyebrow" id="sheetEyebrow"></p><h2 id="sheetTitle"></h2></div><button id="sheetClose" type="button">CLOSE</button></header>
+    <div id="sheetBody" class="sheet-body"></div>
+  </div>
+</div>
+
+<div id="dialogue" class="dialogue hidden" role="dialog" aria-modal="true" aria-labelledby="dialogueTitle">
+  <div class="dialogue-card">
+    <div class="dialogue-pixel"><canvas id="dialogueCanvas" width="48" height="48"></canvas></div>
+    <div class="dialogue-copy">
+      <p class="eyebrow" id="dialogueType"></p>
+      <h2 id="dialogueTitle"></h2>
+      <div id="dialogueText" class="dialogue-text"></div>
+      <div id="dialogueChoices" class="dialogue-choices"></div>
+      <button id="dialogueContinue" type="button" class="primary hidden">CONTINUE</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden" role="status"></div>
+<audio id="audio" preload="metadata"></audio>
+<input id="musicFiles" type="file" accept="audio/mpeg,.mp3" multiple hidden>
+<input id="musicFolder" type="file" accept="audio/mpeg,.mp3" webkitdirectory multiple hidden>
+<input id="importSave" type="file" accept="application/json,.json" hidden>
+<script type="module" src="app.js"></script>
+</body>
+</html>

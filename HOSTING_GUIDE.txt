@@ -1,0 +1,9 @@
+GITHUB PAGES
+============
+1. Upload the CONTENTS of this folder to the repository root.
+2. Confirm index.html is visible at the root.
+3. Settings > Pages > GitHub Actions > Static HTML > Configure.
+4. Commit the workflow and wait for a green deployment check.
+5. Open the HTTPS site in Chrome and choose Install app.
+
+Keep Enforce HTTPS enabled. Service workers, installation and notifications require a secure context outside localhost.

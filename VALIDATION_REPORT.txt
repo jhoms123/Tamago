@@ -1,0 +1,62 @@
+PICO TAMACHIBI FAITHFUL PWA — VALIDATION REPORT
+================================================
+
+SOURCE BASIS
+------------
+Ported from Pico_Tamachibi_v48_Music_Disc.
+
+DATA AUDIT
+----------
+50 species names: passed
+50 source 32x32 sprites: passed
+65 age-coherent parent topics: passed
+240 procedural life events: passed
+27 Growing Together feature families: passed
+13 arcade game entries: passed
+25 life-stage game entries: passed
+
+START FLOW
+----------
+No save: four-egg selection is shown.
+Selected egg begins at Egg stage.
+Hatch threshold: one five-minute life tick.
+Growth thresholds match the source schedule:
+- Baby: hatch through day 1
+- Child: day 1 through day 3
+- Teen: day 3 through day 6
+- Adult: day 6 through day 20
+- Elder: day 20 onward
+
+STATIC VALIDATION
+-----------------
+app.js: Node.js syntax check passed
+data.js: Node.js syntax check passed
+db.js: Node.js syntax check passed
+sw.js: Node.js syntax check passed
+manifest.webmanifest: JSON parse passed
+ZIP integrity: passed
+
+PWA VALIDATION
+--------------
+Manifest, icons, service worker, offline asset cache and GitHub Pages workflow
+are included. HTTPS or localhost is required for installation and service-worker
+features.
+
+KNOWN ADAPTATIONS
+-----------------
+The hardware display, GPIO, potentiometer, EEPROM, LittleFS, SD and I2S layers are
+replaced by browser canvases, touch controls, IndexedDB and HTML audio.
+
+The content databases, stage schedule, core care simulation, world systems and
+all named games are ported. Several Pico minigames use phone-friendly versions
+of their original mechanics rather than line-for-line Arduino execution.
+
+A serverless PWA cannot guarantee exact notification timing while fully closed.
+Elapsed time is always processed when the app reopens.
+
+RUNTIME LIMITATION
+------------------
+The container used for packaging could not complete a Chromium headless runtime
+capture because the sandboxed browser process did not start successfully. The
+project received syntax, data, manifest and archive validation, but should still
+be tested on the target Android browser after deployment.
