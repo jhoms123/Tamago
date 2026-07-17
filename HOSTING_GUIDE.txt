@@ -1,0 +1,32 @@
+PICO TAMACHIBI PWA — SIMPLE PHONE INSTALL GUIDE
+================================================
+
+FASTEST OPTION: GITHUB PAGES
+----------------------------
+1. Create a new empty GitHub repository.
+2. Upload the CONTENTS of this Pico_Tamachibi_PWA folder to the repository root.
+3. Commit the files to the main branch.
+4. Open repository Settings > Pages.
+5. Under Build and deployment, select GitHub Actions.
+6. The included .github/workflows/pages.yml file deploys the app.
+7. Open the HTTPS Pages address shown by GitHub.
+8. In Android Chrome, choose Install app.
+
+NETLIFY DROP
+------------
+1. Sign in to Netlify.
+2. Open Netlify Drop / manual deploy.
+3. Drag the entire Pico_Tamachibi_PWA folder into the upload area.
+4. Open the HTTPS address Netlify provides.
+5. Install from the phone browser menu.
+
+LOCAL COMPUTER TEST
+-------------------
+Run serve.bat on Windows, or run:
+  python -m http.server 8080
+Then open http://localhost:8080 on that same computer.
+
+A phone cannot normally access the computer's localhost address. For phone testing
+before public deployment, use the computer's local network IP and make sure the
+firewall permits port 8080. PWA installation and notifications may still require
+HTTPS, so GitHub Pages or Netlify is easier for final phone use.

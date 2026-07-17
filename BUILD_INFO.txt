@@ -1,0 +1,11 @@
+PICO TAMACHIBI PWA BUILD
+========================
+Species and sprites ported: 50
+Age-coherent parent dialogue topics: 65
+Procedural life events: 240
+Growing Together base prompt combinations: 8,100
+Life-stage games: 25
+Arcade games: 13
+Storage: IndexedDB
+Offline shell: Service Worker + Cache API
+Music: Imported MP3 Blobs in IndexedDB
